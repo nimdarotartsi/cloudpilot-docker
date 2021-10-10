@@ -1,7 +1,5 @@
 FROM ubuntu:20.04
 
-LABEL maintainer Nimda Rotartsi <nimda@americaoffline.org>
-
 # Install Base Packages
 RUN apt-get update && apt-get -y full-upgrade && \
     apt-get install -y apt-utils curl git python3 build-essential
@@ -31,4 +29,5 @@ RUN yarn --cwd /cloudpilot/cloudpilot-ionic/ install && \
     yarn --cwd /cloudpilot/cloudpilot-ionic/ build --configuration production
 
 FROM nginx:latest
+LABEL maintainer Nimda Rotartsi <nimda@americaoffline.org>
 COPY --from=0 /cloudpilot/cloudpilot-ionic/www /usr/share/nginx/html
