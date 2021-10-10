@@ -1,8 +1,6 @@
 FROM ubuntu:20.04
 
-LABEL maintainer Nimda Rotartsi <nimda@planetexpress.lol>
-
-ARG DEBIAN_FRONTEND=noninteractive
+LABEL maintainer Nimda Rotartsi <nimda@americaoffline.org>
 
 # Install Base Packages
 RUN apt-get update && apt-get -y full-upgrade && \
@@ -11,7 +9,7 @@ RUN apt-get update && apt-get -y full-upgrade && \
 # Install node.js
 RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh && \
     /bin/bash /nodesource_setup.sh && \
-    apt install nodejs
+    apt-get install nodejs
 
 # Install emscripten toolchain
 RUN git clone https://github.com/emscripten-core/emsdk.git /emsdk && \
