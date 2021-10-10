@@ -1,0 +1,7 @@
+version: '3.3'
+services:
+    cloudpilot:
+        container_name: cloudpilot
+        ports:
+            - '8989:80'
+        image: cloudpilot
