@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 # Install Base Packages
 RUN apt-get update && apt-get -y full-upgrade && \
-    apt-get install -y apt-utils curl git python3 build-essential
+    apt-get install -y curl git python3 build-essential
 
 # Install node.js
 RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh && \
@@ -28,6 +28,6 @@ RUN ["/bin/bash", "-c", "/emsdk/emsdk activate latest && \
 RUN yarn --cwd /cloudpilot/cloudpilot-ionic/ install && \
     yarn --cwd /cloudpilot/cloudpilot-ionic/ build --configuration production
 
-FROM nginx:latest
+FROM nginx:mainline-alpine
 LABEL maintainer Nimda Rotartsi <nimda@americaoffline.org>
 COPY --from=0 /cloudpilot/cloudpilot-ionic/www /usr/share/nginx/html
