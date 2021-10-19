@@ -3,4 +3,9 @@ It is based on the official nginx base image and is built directly from the [off
 
 Example usage: `docker run -p 8080:80 nimdarotartsi/cloudpilot`
 
+Using the network proxy on a self-hosted instance of Cloudpilot will not work out of the
+box and requires additional configuration to the proxy server. Please check out the
+[documentation](https://github.com/cloudpilot-emu/cloudpilot/blob/master/doc/networking.md#running-cloutpilot-locally-or-on-another-domain)
+for more details.
+
 On Docker Hub at https://hub.docker.com/r/nimdarotartsi/cloudpilot
