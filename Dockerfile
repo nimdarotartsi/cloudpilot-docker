@@ -2,7 +2,7 @@ FROM emscripten/emsdk as emsdk
 RUN git clone https://github.com/cloudpilot-emu/cloudpilot.git /cloudpilot && \
     make -C/cloudpilot/src emscripten
 
-FROM node as node
+FROM node:16 as node
 COPY --from=emsdk /cloudpilot /cloudpilot
 RUN yarn --cwd /cloudpilot/cloudpilot-ionic/ install && \
     yarn --cwd /cloudpilot/cloudpilot-ionic/ build --configuration production
